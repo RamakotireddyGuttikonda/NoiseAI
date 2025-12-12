@@ -9,9 +9,6 @@ NoiseAI is a predictive application that uses machine learning to forecast **day
 - Train **Random Forest** models per station using historical data.
 - Predict **day and night noise values** based on `year` and `month`.
 - Display **available stations** and their **day/night limits** in a sidebar.
-- Simple **Flask API** for prediction.
-- Interactive **HTML/JS frontend** for users.
-
 ---
 
 ## Setup Instructions
@@ -22,7 +19,8 @@ cd NoiseAI
 
 pip install -r requirements.txt
 
-python train_random_forest.py
+python Train_Random_Forest.py
+##Already Trained Models are available in random_forest_station_models directory
 
 python app.py
 
@@ -38,4 +36,5 @@ https://www.kaggle.com/datasets/rohanrao/noise-monitoring-data-in-india
 ---
 
 You can Contact me through ramakotireddyguttikonda8@gmail.com
-Leave a star if u like the project
+-Leave a star if u like the project
+
