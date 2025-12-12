@@ -4,6 +4,10 @@ NoiseAI is a predictive application that uses machine learning to forecast **day
 
 ---
 
+## Implementation Demo
+![Implementation](Screenshot.png)
+---
+
 ## Features
 
 - Train **Random Forest** models per station using historical data.
@@ -37,4 +41,5 @@ https://www.kaggle.com/datasets/rohanrao/noise-monitoring-data-in-india
 
 You can Contact me through ramakotireddyguttikonda8@gmail.com
 -Leave a star if u like the project
+
 
