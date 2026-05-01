@@ -8,6 +8,38 @@ import warnings
 import os
 from pathlib import Path
 warnings.filterwarnings('ignore')
+import boto3
+from uuid import uuid4
+
+def lambda_handler(event, context):
+
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('Newtable')
+
+    if 'Records' in event:
+        for record in event['Records']:
+
+            bucket_name = record['s3']['bucket']['name']
+            object_key = record['s3']['object']['key']
+            size = record['s3']['object'].get('size', -1)
+            event_name = record.get('eventName', 'Unknown')
+            event_time = record.get('eventTime', 'Unknown')
+
+            table.put_item(
+                Item={
+                    'private': str(uuid4()),
+                    'Bucket': bucket_name,
+                    'Object': object_key,
+                    'Size': size,
+                    'Event': event_name,
+                    'EventTime': event_time
+                }
+            )
+
+    return {
+        'statusCode': 200,
+        'body': 'Data stored in DynamoDB'
+    }
 
 def train_random_forest_by_station():
     # Create directory for models if it doesn't exist
